@@ -1,6 +1,9 @@
 # Texas Hold'em
 
-directory structure
+#### A command line Texas Hold'em game
+This project is a way for me to learn basic programming skills whilst utilizing multiple other skills such as using Git, working from the Linux CLI, and editing with VIM. While the majority of the code was originally written in VS Code, the effects of the pandemic pushed me away from practice. I have since pickup practicing again, but have taken a new route learning Linux using WSL and VIM.
+
+####directory structure
 
 ```
 texas_holdem/
