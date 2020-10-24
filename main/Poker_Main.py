@@ -26,7 +26,7 @@ class player:
 
     def get_name(self):
         if self.player_type is None:
-            player_name = input("Now what's your fuckin name, fuckwad?!\n> ")
+            player_name = input("Now what's your name, my friend?\n> ")
             return player_name
         else:
             return self.npc_name()
@@ -49,7 +49,7 @@ class engine():
     ## Simple intro to the game
     def game_start(self):
         print("\n" * 5)
-        print("Welcome to Fuck Y'all Texas Hold'em!")
+        print("Welcome to Honski's Texas Hold'em!")
         print("How bout we start a game!")
     
     def round_start(self):
