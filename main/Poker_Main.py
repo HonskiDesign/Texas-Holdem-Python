@@ -4,7 +4,7 @@
 import itertools
 from random import shuffle
 import NPC_Logic
-from Winning_Hands_Logic import card_logic_start
+from Winning_Hands_Logic import card_logic_start, hand_rank_compare
 from Card_Deck import cards
 
 ## Player Class
@@ -166,3 +166,6 @@ for player in player_roster:
     print(player.hand)
     player.hand_rank = card_logic_start(player.hand, game_main.cards_on_table)
     print(player.hand_rank)
+
+print('\n')
+print("The Winner is " + hand_rank_compare(player_roster).name + '!')

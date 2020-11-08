@@ -69,5 +69,18 @@ def card_logic_start(hand, table):
 
 # This function is to compare hands fo remaining players to decide winner.
 def hand_rank_compare(playerRoster):
+    winning_player = playerRoster[0]
+    for player in playerRoster:
+        if player is not playerRoster[0]:
+            temp_player = player
+            for x in range(5):
+                if temp_player.hand_rank[x] > winning_player.hand_rank[x]:
+                    winning_player = temp_player
+                    break
+                else:
+                    continue
+                x += 1                
+        else:
+            winning_player = player        
+    return winning_player
 
-    pass
