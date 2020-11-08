@@ -17,7 +17,8 @@ def card_logic_start(hand, table):
 
     # Sort the cards by value
     all_cards.sort(key=lambda x: card_rankings.index(x[0]), reverse=True)
-    print(all_cards)
+    
+    print(all_cards) #for debugging
 
     # Set hand rank to 0
     hand_rank = [0,0,0,0,0]
@@ -79,8 +80,6 @@ def hand_rank_compare(playerRoster):
                     break
                 else:
                     continue
-                x += 1                
-        else:
-            winning_player = player        
+                x += 1      
     return winning_player
 
