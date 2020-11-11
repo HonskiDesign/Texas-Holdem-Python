@@ -51,7 +51,7 @@ def card_logic_start(hand, table):
     # Check for pairs, three of kind, four of kind
     for kind in set(kind_list):
         if kind_list.count(kind) == 4 and hand_rank[0] < int(hand_rankings['4K']):
-            hand_rank[0] = hand_rankings['4K']
+            hand_rank[0] = hand_rankings['4K'] 
         if kind_list.count(kind) == 3 and hand_rank[0] < int(hand_rankings['3K']):
             hand_rank[0] = hand_rankings['3K']
         if kind_list.count(kind) == 2 and hand_rank[0] < int(hand_rankings['PR']):
