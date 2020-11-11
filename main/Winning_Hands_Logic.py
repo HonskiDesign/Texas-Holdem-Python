@@ -45,8 +45,6 @@ def card_logic_start(hand, table):
             for card in all_cards:
                 if card[1] == suit and len(winning_hand) < 5:
                     winning_hand.append(card)
-                else:
-                    break
         else:
             continue
 
