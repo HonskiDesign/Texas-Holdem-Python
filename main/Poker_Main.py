@@ -16,7 +16,7 @@ class player:
         self.chips = 10000
         self.hand = list()
         self.hand_rank = []
-        player_roster.append(self)
+        #player_roster.append(self)
     
     ## Methods to get Player names and name NPCs
     def npc_name(self):
@@ -30,6 +30,9 @@ class player:
             return player_name
         else:
             return self.npc_name()
+    
+    def bet(self):
+        pass
     
 
 ## Game engine Class
@@ -136,10 +139,16 @@ player_roster = []
 game_deck = cards()
 game_deck.shuff()
 
-## Create 1Players
+## Create and add Players to roster
 Player1 = player()
+player_roster.append(Player1)
 npc_1 = player("NPC")
+player_roster.append(npc_1)
 npc_2 = player("NPC")
+player_roster.append(npc_2)
+
+## Add players to roster
+
 
 
 
