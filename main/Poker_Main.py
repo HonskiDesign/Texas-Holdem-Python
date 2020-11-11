@@ -180,11 +180,14 @@ game_main.the_flop()
 game_main.the_turn()
 game_main.the_river()
 
+print('\nCards on Table:\n', game_main.cards_on_table, '\n')
+
 for player in game_main.player_roster:
-    print(player.name)
-    print(player.hand)
+    print('Name: ', player.name)
+    print('Hand: ', player.hand)
     player.hand_rank = card_logic_start(player.hand, game_main.cards_on_table)
-    print(player.hand_rank)
+    print('Hand Rank:', player.hand_rank)
+    print('\n')
 
 print('\n')
 print("The Winner is " + hand_rank_compare(game_main.player_roster).name + '!')
