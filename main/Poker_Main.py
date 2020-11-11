@@ -147,11 +147,6 @@ player_roster.append(npc_1)
 npc_2 = player("NPC")
 player_roster.append(npc_2)
 
-## Add players to roster
-
-
-
-
 # Set Dealer
 game_main.set_dealer()
 
