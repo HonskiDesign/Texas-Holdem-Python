@@ -10,7 +10,8 @@ from Card_Deck import cards
 
 #***************#
 
-## Player Class
+## Player Class Object
+
 class player:
     current_npcs = 0
     def __init__(self, player_type=None):
@@ -39,7 +40,8 @@ class player:
     
 #***************#
 
-## Game engine main
+## Game Engine Class Object
+
 class engine():
     def __init__(self):
         self.cards_on_table = []
@@ -138,8 +140,6 @@ class engine():
 
 #***************#
 
-## May organize all these function calls later somehow...
-
 ## Game Initialize
 game_main = engine()
 game_main.game_start()
@@ -156,6 +156,11 @@ npc_1 = player("NPC")
 game_main.player_roster.append(npc_1)
 npc_2 = player("NPC")
 game_main.player_roster.append(npc_2)
+
+
+#***************#
+
+## Main Game Start - Need to make this into a loop.n
 
 # Set Dealer
 game_main.set_dealer()
@@ -183,3 +188,4 @@ for player in game_main.player_roster:
 
 print('\n')
 print("The Winner is " + hand_rank_compare(game_main.player_roster).name + '!')
+
