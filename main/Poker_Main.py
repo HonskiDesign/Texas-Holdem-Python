@@ -3,9 +3,12 @@
 
 import itertools
 from random import shuffle
-import NPC_Logic
-from Winning_Hands_Logic import card_logic_start, hand_rank_compare
+from Winning_Hands_Logic import hand_rank_compare
+from Winning_Hands_Logic import card_logic_start
 from Card_Deck import cards
+ #import NPC_Logic - not currently used
+
+#***************#
 
 ## Player Class
 class player:
@@ -16,7 +19,7 @@ class player:
         self.chips = 10000
         self.hand = list()
         self.hand_rank = []
-        #player_roster.append(self)
+        self.is_betting = False
     
     ## Methods to get Player names and name NPCs
     def npc_name(self):
@@ -34,14 +37,16 @@ class player:
     def bet(self):
         pass
     
+#***************#
 
-## Game engine Class
+## Game engine main
 class engine():
     def __init__(self):
         self.cards_on_table = []
         self.chips_in_pot = 0
         self.min_bets = [10, 20]
         self.dealer = None
+        self.player_roster = []
         self.round_roster = []
         self.round_winner = None
         self.round_count = 0
@@ -56,17 +61,23 @@ class engine():
         print("How bout we start a game!")
     
     def round_start(self):
-        for player in player_roster:
+        for player in self.player_roster:
             self.round_roster.append(player)
 
     ## Need to write function to decide how many NPCs are to play
     def npcs_to_play(self):
         pass
 
+    ## Creating Players and adding them to the roster
+
+    def get_players(self):
+        
+        pass
+
     # Need To Write function to set the dealer token
     def set_dealer(self):
         self.previous_dealer = self.current_dealer
-        self.current_dealer = next(itertools.cycle(player_roster))
+        self.current_dealer = next(itertools.cycle(self.player_roster))
 
     ## This will promp the player for a bet and add the bet to the pot.
     def bet(self):
@@ -84,7 +95,7 @@ class engine():
 
     ## Deals the players listed in the player roster their cards
     def deal_players(self):
-        for player in player_roster:
+        for player in self.player_roster:
             player.hand = game_deck.deal(2)
 
     ## Deals the the flop
@@ -123,17 +134,16 @@ class engine():
         if self.round_count % 5 == 0:
             for i in range(len(self.min_bets)):
                 self.min_bets[i] *= 2
-    
 
-## Need winning hands for compare
 
+#***************#
 
 ## May organize all these function calls later somehow...
 
 ## Game Initialize
 game_main = engine()
 game_main.game_start()
-player_roster = []
+game_main.player_roster = []
 
 ## Create the Game Deck and shuffle it.
 game_deck = cards()
@@ -141,11 +151,11 @@ game_deck.shuff()
 
 ## Create and add Players to roster
 Player1 = player()
-player_roster.append(Player1)
+game_main.player_roster.append(Player1)
 npc_1 = player("NPC")
-player_roster.append(npc_1)
+game_main.player_roster.append(npc_1)
 npc_2 = player("NPC")
-player_roster.append(npc_2)
+game_main.player_roster.append(npc_2)
 
 # Set Dealer
 game_main.set_dealer()
@@ -165,11 +175,11 @@ game_main.the_flop()
 game_main.the_turn()
 game_main.the_river()
 
-for player in player_roster:
+for player in game_main.player_roster:
     print(player.name)
     print(player.hand)
     player.hand_rank = card_logic_start(player.hand, game_main.cards_on_table)
     print(player.hand_rank)
 
 print('\n')
-print("The Winner is " + hand_rank_compare(player_roster).name + '!')
+print("The Winner is " + hand_rank_compare(game_main.player_roster).name + '!')
