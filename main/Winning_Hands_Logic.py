@@ -25,10 +25,10 @@ def card_logic_start(hand, table):
     winning_hand = []
 
     # Create list of kind and suites
-    kind_list = []
+    value_list = []
     suit_list = []
     for card in all_cards:
-        kind_list.append(card[0])
+        value_list.append(card[0])
         suit_list.append(card[1])
 
 
@@ -49,18 +49,18 @@ def card_logic_start(hand, table):
             continue
 
     # Check for pairs, three of kind, four of kind
-    for kind in set(kind_list):
-        if kind_list.count(kind) == 4 and hand_rank[0] < int(hand_rankings['4K']):
+    for kind in set(value_list):
+        if value_list.count(kind) == 4 and hand_rank[0] < int(hand_rankings['4K']):
             hand_rank[0] = hand_rankings['4K']
             for card in all_cards:
                 if card[0] == kind:
                     winning_hand.append(card)
                     all_cards.pop(card)
-        if kind_list.count(kind) == 3 and hand_rank[0] < int(hand_rankings['3K']):
+        if value_list.count(kind) == 3 and hand_rank[0] < int(hand_rankings['3K']):
             hand_rank[0] = hand_rankings['3K']
-        if kind_list.count(kind) == 2 and hand_rank[0] < int(hand_rankings['PR']):
+        if value_list.count(kind) == 2 and hand_rank[0] < int(hand_rankings['PR']):
             hand_rank[0] = hand_rankings['PR']
-        if kind_list.count(kind) == 2 and hand_rank[0] == int(hand_rankings['PR']):
+        if value_list.count(kind) == 2 and hand_rank[0] == int(hand_rankings['PR']):
             hand_rank[0] == int(hand_rankings['2P'])     
         elif len(winning_hand) < 5:
             winning_hand.append(all_cards.pop(0))
