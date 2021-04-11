@@ -18,7 +18,7 @@ texas_holdem/
     setup.py
   tests/
     TexasHoldem_tests.py
-	__init__.py
+    __init__.py
 ```
 
 ### Poker_Main.py
