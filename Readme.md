@@ -15,7 +15,7 @@ texas_holdem/
     NPC_Logic.py
   bin/
   docs/
-    setup.py
+  setup.py
   tests/
     TexasHoldem_tests.py
     __init__.py
