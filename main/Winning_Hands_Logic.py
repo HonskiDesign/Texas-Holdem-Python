@@ -24,7 +24,7 @@ def card_logic_start(hand, table):
     hand_rank = [0,0,0,0,0]
     winning_hand = []
 
-    # Create list of kind and suites
+    # Create list of values and suites
     value_list = []
     suit_list = []
     for card in all_cards:
