@@ -30,6 +30,7 @@ class player:
 
     def get_name(self):
         if self.player_type is None:
+            self.player_type = 'Human'
             player_name = input("Now what's your name, my friend?\n> ")
             return player_name
         else:
@@ -184,6 +185,7 @@ print('\nCards on Table:\n', game_main.cards_on_table, '\n')
 
 for player in game_main.player_roster:
     print('Name: ', player.name)
+    print('Player Type: ', player.player_type)
     print('Hand: ', player.hand)
     player.hand_rank = card_logic_start(player.hand, game_main.cards_on_table)
     print('Hand Rank:', player.hand_rank)
