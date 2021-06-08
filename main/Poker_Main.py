@@ -36,8 +36,6 @@ class player:
         else:
             return self.npc_name()
     
-    def bet(self):
-        pass
     
 #***************#
 
@@ -59,7 +57,7 @@ class engine():
 
     ## Simple intro to the game
     def game_start(self):
-        print("\n" * 5)
+        print("\n")
         print("Welcome to Honski's Texas Hold'em!")
         print("How bout we start a game!")
     
