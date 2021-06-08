@@ -18,7 +18,7 @@ class player:
         self.player_type = player_type
         self.name = self.get_name()
         self.chips = 10000
-        self.hand = list()
+        self.hand = []
         self.hand_rank = []
         self.is_betting = False
     
