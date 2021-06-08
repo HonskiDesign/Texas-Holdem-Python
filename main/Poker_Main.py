@@ -139,6 +139,8 @@ class engine():
 
 #***************#
 
+#TODO Need to make a game loop to handle flow of startup, rounds, and turns
+
 ## Game Initialize
 game_main = engine()
 game_main.game_start()
