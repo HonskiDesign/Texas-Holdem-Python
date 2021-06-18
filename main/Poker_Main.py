@@ -10,6 +10,7 @@ from Player import player
  #import NPC_Logic - not currently used
 
 ## Game Engine Class Object
+# TODO move engine class to it's own file
 
 class engine():
     def __init__(self):
@@ -132,7 +133,7 @@ game_main.player_roster.append(npc_2)
 #***************#
 
 ## Main Game Start - Need to make this into a loop.n
-
+# TODO write tests in place of print to terminal
 # Set Dealer
 game_main.set_dealer()
 
