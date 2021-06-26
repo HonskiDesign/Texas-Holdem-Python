@@ -65,9 +65,6 @@ def card_logic_start(hand, table):
         elif len(winning_hand) < 5:
             winning_hand.append(all_cards.pop(0))
 
-    
-    
-    print("Player's Hand: ", winning_hand)
     return hand_rank
 
 # This function is to compare hands fo remaining players to decide winner.

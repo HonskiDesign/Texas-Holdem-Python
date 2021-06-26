@@ -17,7 +17,7 @@ class engine():
         self.cards_on_table = []
         self.chips_in_pot = 0
         self.min_bets = [10, 20]
-        self.dealer = None
+        self.dealer = None #clarify what dealer is
         self.player_roster = []
         self.round_roster = []
         self.round_winner = None
@@ -37,8 +37,16 @@ class engine():
             self.round_roster.append(player)
 
     ## Need to write function to decide how many NPCs are to play
+    # TODO finish fixing this function, need to iterate variable names and create 
+    # new npcs based on how many the user wants.
     def npcs_to_play(self):
-        pass
+        num_npcs = input("How many NPCs would you like to play against? ")
+        for x, i in enumerate(num_npcs):
+            npc_name = "NPC_" + x
+            self.player_roster.append()
+            npc_1 = player("NPC")
+
+
 
     ## Creating Players and adding them to the roster
 
@@ -115,7 +123,6 @@ class engine():
 ## Game Initialize
 game_main = engine()
 game_main.game_start()
-game_main.player_roster = []
 
 ## Create the Game Deck and shuffle it.
 game_deck = cards()
