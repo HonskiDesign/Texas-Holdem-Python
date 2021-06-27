@@ -10,7 +10,6 @@ class player:
         self.chips = 10000
         self.hand = []
         self.hand_rank = []
-        self.is_playing = True
         self.is_betting = False
     
     ## Methods to get Player names and name NPCs
