@@ -4,11 +4,7 @@
 # TODO move engine game logic to this file
 # TODO refactor game engine to be specific to handling the turn and game startup
 
-import itertools
-from random import shuffle
-from Winning_Hands_Logic import hand_rank_compare
-from Winning_Hands_Logic import card_logic_start
-from Card_Deck import cards
+from itertools import cycle
 from Player import player
  
 class engine():
@@ -24,12 +20,6 @@ class engine():
         self.current_dealer = None
         self.previous_dealer = None
 
-################# Game Startup ##################
-
-    # Intro - First thing player see
-    def game_start(self):
-        pass
-
     # new npcs based on how many the user wants.
     def npcs_to_play(self):
         while True:
@@ -43,11 +33,45 @@ class engine():
         for i in range(1, num_npcs+1):
             self.player_roster.append(player("NPC"))
 
+    # Get Player
+    def get_player(self):
+        self.player_roster.append(player())
+
+    
+    ##### Game Loop Methods #####
+
+    # 0. Players participating this round
+    def round_start(self):
+        for player in self.player_roster:
+            if player.chips > 0:
+                self.round_roster.append(player)
+
+    # 1. Set Dealer
+    def set_dealer(self):
+        if self.round_count == 0:
+            self.current_dealer = self.round_roster[0]
+            self.previous_dealer = self.round_roster[-1]
+        else:
+            self.previous_dealer = self.current_dealer
+            self.current_dealer = next(itertools.cycle(self.round_roster))
+        self.current_dealer.is_betting = True
+        self.previous_dealer.is_betting = True
 
 
+    # 2. Get Ante
+    # 3. Get Initial Bets Pre-Deal
+    # 4. Deal
+    # 5. Get More bets, check folds, check winner?
+    # 6. Flop
+    # 7. Get more bets, check folds, check winner?
+    # 8. Turn
+    # 9. Get more bets, check folds, check winner?
+    # 10. River
+    # 11. Get more bets, check folds
+    # 12. Showdown.
 
+# TODO need way to manage game state or progress in steps.
 
 ##### DEBUG #####
-game = engine()
-game.game_start()
+#game = engine()
 
