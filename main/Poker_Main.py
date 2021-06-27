@@ -36,17 +36,18 @@ class engine():
         for player in self.player_roster:
             self.round_roster.append(player)
 
-    ## Need to write function to decide how many NPCs are to play
-    # TODO finish fixing this function, need to iterate variable names and create 
     # new npcs based on how many the user wants.
     def npcs_to_play(self):
-        num_npcs = input("How many NPCs would you like to play against? ")
-        for x, i in enumerate(num_npcs):
-            npc_name = "NPC_" + x
-            self.player_roster.append()
-            npc_1 = player("NPC")
+        while True:
+            try:
+                num_npcs = int(input("How many NPCs would you like to play against \(1-7\)? "))
+                if 1 <= num_npcs <= 7:
+                    break
+            except:
+                print("Please enter a number between 1 and 7")
 
-
+        for i in range(1, num_npcs+1):
+            self.player_roster.append(player("NPC_" + str(i)))
 
     ## Creating Players and adding them to the roster
 
