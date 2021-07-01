@@ -15,9 +15,6 @@ texas_holdem/
     Winning_Hands_Logic.py
     Card_Deck.py
     NPC_Logic.py
-  bin/
-  docs/
-  setup.py
   tests/
     TexasHoldem_tests.py
     __init__.py
