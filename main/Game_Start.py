@@ -16,7 +16,6 @@ while True:
     game.round_start()
     game.set_dealer()
     game.ante_up()
-    game.end_of_round()
 
     for player in game.player_roster:
         print("---Player---")
@@ -25,5 +24,6 @@ while True:
         print(player.hand)
         print(player.is_betting)
 
+    game.end_of_round()
 # Match End
 
