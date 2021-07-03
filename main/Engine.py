@@ -100,7 +100,10 @@ class engine():
         if self.round_count % 5 == 0:
             for i in range(len(self.min_bets)):
                 self.min_bets[i] *= 2
-
+       
+        ans = input('Hit Enter to conitinue or Q to quit: ')
+        if ans.lower() == 'q':
+            quit()
 
 
 # TODO need way to manage game state or progress in steps.
