@@ -1,7 +1,7 @@
 # Texas Hold Em' for the CLI
 # Written by GH on 6-25-2021
 
-# TODO move engine game logic to this file
+# TODO need way to manage game state or progress in steps.
 # TODO refactor game engine to be specific to handling the turn and game startup
 
 import itertools
@@ -12,11 +12,11 @@ class engine():
         self.cards_on_table = []
         self.chips_in_pot = 0
         self.min_bets = [20, 10]
-        self.dealer = None #clarify what dealer is
+        self.dealer = None 
         self.player_roster = []
         self.round_roster = []
         self.round_winner = None
-        self.round_count = 0
+        self.round_count = 1 
         self.current_dealer = None
         self.previous_dealer = None
 
@@ -49,16 +49,16 @@ class engine():
             if player.chips > 0:
                 self.round_roster.append(player)
 
+# TODO Current Dealer Cycle Function Broken
     # 1. Set Dealer
     def set_dealer(self):
-        if self.round_count == 0:
+        if self.round_count == 1:
             self.current_dealer = self.round_roster[0]
             self.previous_dealer = self.round_roster[-1]
         else:
             self.previous_dealer = self.current_dealer
-            # TODO Current Dealer Cycle Function Broken
             self.current_dealer = next(itertools.cycle(self.round_roster))
-            print(self.current_dealer.name + " is the Dealer")
+            print(self.current_dealer.name + " is now the Dealer")
         self.current_dealer.is_betting = True
         self.previous_dealer.is_betting = True
 
@@ -84,7 +84,7 @@ class engine():
     def end_of_round(self):
         
         ## Find Winner, give chips
-        # TODO need to figure out how to divy pot
+# TODO need to figure out how to divy pot
         #print(self.round_winner.name + " has won the round and $" + self.chips_in_pot + "!")
         #self.round_winner.chips += self.chips_in_pot
         #self.chips_in_pot = 0
@@ -97,7 +97,7 @@ class engine():
         
         ## Update minimum bet amounds by a factor of 2 every 5 rounds of play
         self.round_count += 1
-        if self.round_count % 5 == 0:
+        if self.round_count % 10 == 0:
             for i in range(len(self.min_bets)):
                 self.min_bets[i] *= 2
        
@@ -105,9 +105,4 @@ class engine():
         if ans.lower() == 'q':
             quit()
 
-
-# TODO need way to manage game state or progress in steps.
-
-##### DEBUG #####
-#game = engine()
 
