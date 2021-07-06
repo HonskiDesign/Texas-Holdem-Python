@@ -11,7 +11,6 @@ from Player import player
 
 
 ## Game Engine Class Object
-# TODO move engine class to it's own file
 
 class engine():
     def __init__(self):
@@ -106,8 +105,6 @@ class engine():
 
 
 #***************#
-
-#TODO Need to make a game loop to handle flow of startup, rounds, and turns
 
 ## Game Initialize
 game_main = engine()
