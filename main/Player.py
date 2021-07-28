@@ -11,7 +11,7 @@ class player:
         self.hand = []
         self.hand_rank = []
         self.is_betting = False
-    
+        self.is_dealer = False    
     ## Methods to get Player names and name NPCs
     def npc_name(self):
         player.current_npcs += 1
