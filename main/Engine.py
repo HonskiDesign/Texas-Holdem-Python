@@ -44,7 +44,7 @@ class engine():
 
     # 0. Players participating this round
     def round_start(self):
-        print("***** ROUND {} *****".format(self.round_count))
+        print(f"***** ROUND {self.round_count} *****")
         for player in self.player_roster:
             if player.chips > 0:
                 self.round_roster.append(player)
@@ -98,9 +98,10 @@ class engine():
         ## Update minimum bet amounds by a factor of 2 every 5 rounds of play
         self.round_count += 1
         if self.round_count % 10 == 0:
-            for i in range(len(self.min_bets)):
-                self.min_bets[i] *= 2
-       
+            for i in self.min_bets:
+                i *= 2
+                print(f"Min bet now {i}")
+
         ans = input('Hit Enter to conitinue or Q to quit: ')
         if ans.lower() == 'q':
             quit()

@@ -15,6 +15,7 @@ game.npcs_to_play()
 while True:
     game.round_start()
     game.set_dealer()
+    print(f"Min bets are {game.min_bets[0]} & {game.min_bets[1]}")
     game.ante_up()
 
     for player in game.player_roster:

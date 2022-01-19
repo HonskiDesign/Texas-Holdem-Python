@@ -158,3 +158,4 @@ for player in game_main.player_roster:
 print('\n')
 print("The Winner is " + hand_rank_compare(game_main.player_roster).name + '!')
 
+game_main.end_of_round()
