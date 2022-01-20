@@ -17,6 +17,7 @@ class engine():
         self.round_roster = []
         self.round_winner = None
         self.round_count = 1 
+        self.dealer_pos = 1
         self.current_dealer = None
         self.previous_dealer = None
 
@@ -52,13 +53,19 @@ class engine():
 # TODO set_dealer() broken, returns iter object, not actual engine object.
     # 1. Set Dealer
     def set_dealer(self):
-        if self.round_count == 1:
+        if self.dealer_pos == 1:
             self.current_dealer = self.round_roster[0]
             self.previous_dealer = self.round_roster[-1]
+            self.dealer_pos += 1
+        elif self.dealer_pos > 1 and self.dealer_pos <= len(self.round_roster):
+            self.previous_dealer = self.current_dealer
+            self.current_dealer = self.round_roster[self.dealer_pos - 1]
+            self.dealer_pos += 1
         else:
             self.previous_dealer = self.current_dealer
-            self.current_dealer = next(itertools.cycle(self.round_roster))
-            print(self.current_dealer.name + " is now the Dealer")
+            self.current_dealer = self.round_roster[0]
+            self.dealer_pos = 2
+        print(self.current_dealer.name + " is now the Dealer")
         self.current_dealer.is_betting = True
         self.previous_dealer.is_betting = True
 
