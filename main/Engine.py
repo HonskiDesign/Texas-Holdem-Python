@@ -50,8 +50,7 @@ class engine():
             if player.chips > 0:
                 self.round_roster.append(player)
 
-# TODO set_dealer() broken, returns iter object, not actual engine object.
-    # 1. Set Dealer
+   # 1. Set Dealer
     def set_dealer(self):
         if self.dealer_pos == 1:
             self.current_dealer = self.round_roster[0]
