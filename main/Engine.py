@@ -105,4 +105,5 @@ class engine():
         if ans.lower() == 'q':
             quit()
 
-
+        ## Clear round_roster as round is over
+        self.round_roster = []
