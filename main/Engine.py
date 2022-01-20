@@ -90,18 +90,17 @@ class engine():
         #self.chips_in_pot = 0
 
         ## Remove players no longer able to bet
-        for player in self.round_roster:
-            if player.chips == 0:
+        for player in self.player_roster:
+            if player.chips <= 0:
                 print(f"{player.name} has been eliminated!")
-                self.round_roster.remove(player)
+                self.player_roster.remove(player)
         
         ## Update minimum bet amounds by a factor of 2 every 5 rounds of play
         self.round_count += 1
         if self.round_count % 10 == 0:
-            for i in self.min_bets:
-                i *= 2
-                print(f"Min bet now {i}")
-
+            self.min_bets = list(map(lambda x: x*2, self.min_bets))
+        
+        ## Choose to continue
         ans = input('Hit Enter to conitinue or Q to quit: ')
         if ans.lower() == 'q':
             quit()
