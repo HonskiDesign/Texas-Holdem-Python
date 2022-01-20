@@ -27,4 +27,3 @@ while True:
 
     game.end_of_round()
 # Match End
-
