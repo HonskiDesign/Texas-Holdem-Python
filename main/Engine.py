@@ -77,6 +77,8 @@ class engine():
         self.chips_in_pot += self.min_bets[1]
 
     # 3. Get Initial Bets Pre-Deal
+    def bet_cycle(self):
+        pass
     # 4. Deal - Handled by Game_Deck
     # 5. Get More bets, check folds, check winner?
     # 6. Flop
@@ -87,13 +89,7 @@ class engine():
     # 11. Get more bets, check folds
     # 12. Showdown.
     # 13. End Round
-    def end_of_round(self):
-        
-        ## Find Winner, give chips
-# TODO need to figure out how to divy pot
-        #print(self.round_winner.name + " has won the round and $" + self.chips_in_pot + "!")
-        #self.round_winner.chips += self.chips_in_pot
-        #self.chips_in_pot = 0
+    def round_end(self):
 
         ## Remove players no longer able to bet
         for player in self.player_roster:
@@ -113,3 +109,9 @@ class engine():
 
         ## Clear round_roster as round is over
         self.round_roster = []
+
+        ## Announce winner
+        if len(self.player_roster) == 1:
+            print(self.player_roster[0].name + " is the Winner!")
+            quit()
+

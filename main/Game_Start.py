@@ -25,5 +25,5 @@ while True:
         print(player.hand)
         print(player.is_betting)
 
-    game.end_of_round()
+    game.round_end()
 # Match End
